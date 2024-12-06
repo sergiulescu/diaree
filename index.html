@@ -30,9 +30,20 @@
             line-height: 1.8;
             overflow-x: hidden;
             position: relative;
-            background-image: url('https://i.imgur.com/udANJ9k.png'); /* Pattern background */
-            background-repeat: repeat;
-            background-size: 60px 60px;
+        }
+
+        /* Fundal cu linii fine cyberpunk */
+        .background-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background-image: linear-gradient(90deg, #00b3b3 1px, transparent 1px),
+                              linear-gradient(0deg, #00b3b3 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
         }
 
         header {
@@ -48,9 +59,22 @@
             animation: headerAnimation 3s ease-out;
         }
 
-        @keyframes headerAnimation {
-            0% { opacity: 0; transform: translateY(-50px); }
-            100% { opacity: 1; transform: translateY(0); }
+        /* Banda animata cu text pentru header (ca un footer de sus) */
+        .scrolling-text {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            font-family: 'Press Start 2P', cursive;
+            font-size: 1.5em;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: scroll-text 90s linear infinite; /* Viteza derulantă mai lentă */
+        }
+
+        @keyframes scroll-text {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
         .container {
@@ -108,52 +132,25 @@
             background-color: var(--highlight-color);
         }
 
-        .funny-text {
-            font-size: 18px;
-            font-family: var(--font-secondary);
-            color: var(--link-color);
-            margin-top: 20px;
-        }
-
-        .funny-text:hover {
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-        .footer {
-            background-color: #222222;
-            color: #aaa;
-            padding: 15px;
-            text-align: center;
-            font-size: 14px;
-            position: fixed;
+        /* Sunet intro de tip "breaking news" */
+        .background-lines {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            bottom: 0;
-            overflow: hidden;
-        }
-
-        .footer p {
-            white-space: nowrap;
-            animation: scroll-text 10s linear infinite;
-        }
-
-        @keyframes scroll-text {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
-
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.1); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 1; }
+            height: 100%;
+            pointer-events: none;
+            background-image: linear-gradient(90deg, #00b3b3 1px, transparent 1px),
+                              linear-gradient(0deg, #00b3b3 1px, transparent 1px);
+            background-size: 30px 30px;
+            z-index: -1;
         }
     </style>
 </head>
 <body>
+
+<!-- Adaugă liniile fine pe fundal -->
+<div class="background-lines"></div>
 
 <!-- Sunet intro de tip "breaking news" -->
 <audio id="intro-sound" src="https://www.soundjay.com/button/beep-09.wav" preload="auto"></audio>
@@ -161,6 +158,11 @@
 <header>
     Informatii Despre Diaree
 </header>
+
+<!-- Banda animata cu text -->
+<div class="scrolling-text">
+    Stiati ca diareea a fost una dintre cele mai vechi „probleme de sanatate”? | In caz ca nu v-ati dat seama, nu exista niciodata un moment bun pentru diaree! | Daca simti ca ai o problema... hai la WC! | Nu lasa diareea sa iti strice ziua, dar lasa-i un loc de cinste pe WC!
+</div>
 
 <div class="container">
     <div class="card">
@@ -200,11 +202,6 @@
         <p>Diareea este a patra cauza principala de deces in randul copiilor sub 5 ani. Prevenirea prin igiena corecta este esentiala!</p>
         <a href="#" class="cta-button">Afla cum sa previi</a>
     </div>
-</div>
-
-<!-- Footer cu text glume care se deruleaza -->
-<div class="footer">
-    <p>Stiati ca diareea a fost una dintre cele mai vechi „probleme de sanatate”? | In caz ca nu v-ati dat seama, nu exista niciodata un moment bun pentru diaree! | Daca simti ca ai o problema... hai la WC! | Nu lasa diareea sa iti strice ziua, dar lasa-i un loc de cinste pe WC! </p>
 </div>
 
 <!-- Activare sunet intro -->
