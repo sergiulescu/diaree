@@ -3,190 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Interactiv: Informații despre Diaree</title>
+    <title>Totul despre Diaree</title>
     <style>
-        /* Fonturi și setări generale */
-        @import url('https://fonts.googleapis.com/css2?family=Calibri&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+
+        :root {
+            --primary-color: #ff6f61;
+            --secondary-color: #f7b731;
+            --highlight-color: #40e0d0;
+            --background-color: #f7f7f7;
+            --card-bg: #fff;
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --text-color: #333;
+            --title-color: #e91e63;
+            --font-primary: 'Raleway', sans-serif;
+            --font-secondary: 'Open Sans', sans-serif;
+        }
 
         body {
-            font-family: 'Calibri', sans-serif;
+            font-family: var(--font-primary);
             margin: 0;
             padding: 0;
-            background: #f5f5f5;
-            color: #333;
+            background-color: var(--background-color);
+            color: var(--text-color);
             line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(90deg, #007bff, #00bfff);
+            background-color: var(--primary-color);
             color: #fff;
-            padding: 20px;
+            padding: 40px 0;
             text-align: center;
-            font-size: 28px;
+            font-size: 36px;
+            font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             max-width: 1200px;
-            margin: 20px auto;
+            margin: 30px auto;
             padding: 20px;
         }
 
-        .section {
-            background: #fff;
-            border-radius: 8px;
-            padding: 20px;
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 6px 20px var(--shadow-color);
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px var(--shadow-color);
+        }
+
+        .card img {
+            width: 100px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .section h2 {
-            color: #007bff;
+        .card h3 {
             font-size: 24px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--title-color);
+            margin-bottom: 15px;
         }
 
-        /* Stil pentru grafic */
-        .chart-container {
-            margin: 20px 0;
-            padding: 10px;
-            background: #f9f9f9;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+        .card p {
+            font-size: 16px;
+            color: var(--text-color);
+        }
+
+        .stat {
+            background-color: var(--highlight-color);
+            color: #fff;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+
+        .section-title {
+            font-size: 28px;
             text-align: center;
+            font-weight: bold;
+            margin-bottom: 40px;
+            color: var(--title-color);
         }
 
-        footer {
+        .footer {
+            background-color: var(--primary-color);
+            color: #fff;
             text-align: center;
             padding: 20px;
-            background: #007bff;
-            color: #fff;
+            font-size: 16px;
+            margin-top: 50px;
+        }
+
+        .info-icon {
+            width: 100px;
             margin-top: 20px;
-            font-size: 14px;
         }
 
-        a {
-            color: #007bff;
+        .cta-button {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
             text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
         }
 
-        a:hover {
-            text-decoration: underline;
+        .cta-button:hover {
+            background-color: var(--secondary-color);
         }
+
+        .chart-container {
+            margin: 30px auto;
+        }
+
     </style>
 </head>
 <body>
 
 <header>
-    Dashboard Interactiv: Diaree și Informații Utile
+    Totul despre Diaree: Informații esențiale pentru sănătatea ta
 </header>
 
 <div class="container">
-
-    <!-- Secțiunea Statistici -->
-    <div class="section">
-        <h2>Statistici globale</h2>
-        <div class="chart-container">
-            <canvas id="globalStatsChart"></canvas>
-        </div>
+    <div class="card">
+        <img src="https://img.icons8.com/external-flat-juicy-fish/344/external-global-health-flat-flat-juicy-fish.png" alt="Cazuri globale">
+        <h3>Știați că?</h3>
+        <p>Diareea este una dintre cele mai frecvente afecțiuni la nivel global, afectând aproximativ 1,7 miliarde de oameni anual.</p>
     </div>
 
-    <!-- Secțiunea Cauze -->
-    <div class="section">
-        <h2>Cauzele Diareei</h2>
-        <div class="chart-container">
-            <canvas id="causesPieChart"></canvas>
-        </div>
+    <div class="card">
+        <img src="https://img.icons8.com/external-flat-juicy-fish/344/external-children-global-health-flat-flat-juicy-fish.png" alt="Frecvența la copii">
+        <h3>Frecvența Diareei la Copii</h3>
+        <p>20% dintre copiii sub 5 ani sunt afectați de diaree cel puțin o dată pe lună, ceea ce poate duce la deshidratare severă.</p>
     </div>
 
-    <!-- Secțiunea Durata Simptomelor -->
-    <div class="section">
-        <h2>Durata Simptomelor</h2>
-        <div class="chart-container">
-            <canvas id="durationBarChart"></canvas>
-        </div>
+    <div class="card">
+        <img src="https://img.icons8.com/external-flat-juicy-fish/344/external-viruses-global-health-flat-flat-juicy-fish.png" alt="Cauze">
+        <h3>Cauze comune ale diareei</h3>
+        <ul style="text-align: left;">
+            <li>Infecții virale (ex. rotavirus)</li>
+            <li>Infecții bacteriene (ex. Salmonella, E. coli)</li>
+            <li>Intoleranțe alimentare (ex. lactoză)</li>
+            <li>Medicamentoase (ex. antibiotice)</li>
+            <li>Contaminarea apei sau a alimentelor</li>
+        </ul>
     </div>
 
+    <div class="card">
+        <img src="https://img.icons8.com/external-flat-juicy-fish/344/external-diagnosis-global-health-flat-flat-juicy-fish.png" alt="Durata">
+        <h3>Durata și tipuri de diaree</h3>
+        <p>Diareea poate fi:</p>
+        <ul style="text-align: left;">
+            <li><strong>Acută:</strong> durează între 1-3 zile</li>
+            <li><strong>Persistentă:</strong> durează între 4-14 zile</li>
+            <li><strong>Cronică:</strong> durează mai mult de 15 zile</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <img src="https://img.icons8.com/external-flat-juicy-fish/344/external-complication-global-health-flat-flat-juicy-fish.png" alt="Complicații">
+        <h3>Complicații</h3>
+        <p>Diareea severă poate duce la:</p>
+        <ul style="text-align: left;">
+            <li>Deshidratare (periculoasă pentru copii și vârstnici)</li>
+            <li>Șoc hipovolemic</li>
+            <li>Complicații renale</li>
+        </ul>
+    </div>
 </div>
 
-<footer>
-    &copy; 2024 Dashboard Interactiv. Toate drepturile rezervate.
-</footer>
+<div class="container">
+    <div class="card">
+        <img src="https://img.icons8.com/external-flat-juicy-fish/344/external-treatment-global-health-flat-flat-juicy-fish.png" alt="Tratament">
+        <h3>Cum se tratează diareea?</h3>
+        <p>Tratamentul include:</p>
+        <ul style="text-align: left;">
+            <li>Hidratare (soluții de rehidratare orală)</li>
+            <li>Medicamente antidiarrheale (ex. Loperamid)</li>
+            <li>Antibiotice (în caz de infecție bacteriană)</li>
+            <li>Evitați alimentele care irită stomacul</li>
+        </ul>
+    </div>
 
-<!-- Adaugă Chart.js -->
+    <div class="card">
+        <img src="https://img.icons8.com/external-flat-juicy-fish/344/external-warning-global-health-flat-flat-juicy-fish.png" alt="Pericole la copii si batrani">
+        <h3>Pericole la copii și bătrâni</h3>
+        <p>Diareea poate fi extrem de periculoasă pentru copii și bătrâni, ducând rapid la deshidratare severă și chiar moarte.</p>
+        <a href="#" class="cta-button">Aflați mai multe despre deshidratare</a>
+    </div>
+</div>
+
+<!-- Grafic Pie pentru tipuri de diaree -->
+<div class="chart-container">
+    <h3 class="section-title">Distribuția tipurilor de diaree</h3>
+    <canvas id="durationChart"></canvas>
+</div>
+
+<div class="footer">
+    &copy; 2024 Totul despre Diaree. Toate drepturile rezervate.
+</div>
+
+<!-- Adaugă Chart.js pentru grafice -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    // Grafic 1: Statistici Globale
-    const ctxGlobalStats = document.getElementById('globalStatsChart').getContext('2d');
-    new Chart(ctxGlobalStats, {
-        type: 'bar',
-        data: {
-            labels: ['Adulți (%)', 'Copii (%)', 'Decese Anuale (milioane)'],
-            datasets: [{
-                label: 'Statistici Globale',
-                data: [5, 20, 2],
-                backgroundColor: ['#007bff', '#00bfff', '#ff7f50'],
-                borderColor: ['#0056b3', '#007bff', '#cc3300'],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: false
-                }
-            }
-        }
-    });
-
-    // Grafic 2: Cauzele Diareei
-    const ctxCauses = document.getElementById('causesPieChart').getContext('2d');
-    new Chart(ctxCauses, {
+    const ctxDuration = document.getElementById('durationChart').getContext('2d');
+    new Chart(ctxDuration, {
         type: 'pie',
         data: {
-            labels: ['Infecții bacteriene', 'Infecții virale', 'Intoleranțe alimentare', 'Alimente contaminate'],
+            labels: ['Acută (1-3 zile)', 'Persistentă (4-14 zile)', 'Cronică (15+ zile)'],
             datasets: [{
-                label: 'Cauze',
-                data: [35, 25, 20, 20],
-                backgroundColor: ['#007bff', '#ff7f50', '#00bfff', '#7fff00']
+                data: [70, 20, 10],
+                backgroundColor: ['#ff6f61', '#f7b731', '#40e0d0'],
+                hoverOffset: 4
             }]
         },
         options: {
             responsive: true,
             plugins: {
-                legend: {
-                    position: 'bottom'
-                }
-            }
-        }
-    });
-
-    // Grafic 3: Durata Simptomelor
-    const ctxDuration = document.getElementById('durationBarChart').getContext('2d');
-    new Chart(ctxDuration, {
-        type: 'bar',
-        data: {
-            labels: ['1-3 zile', '4-7 zile', '7+ zile'],
-            datasets: [{
-                label: 'Durata Simptomelor',
-                data: [50, 30, 20],
-                backgroundColor: ['#ff7f50', '#007bff', '#00bfff'],
-                borderColor: ['#cc3300', '#0056b3', '#007bff'],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    display: false
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true
+                legend: { position: 'bottom' },
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            const label = context.label || '';
+                            const value = context.raw || 0;
+                            return `${label}: ${value}%`;
+                        }
+                    }
                 }
             }
         }
