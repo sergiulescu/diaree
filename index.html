@@ -66,10 +66,10 @@
             padding: 10px 0;
             text-align: center;
             font-family: 'Press Start 2P', cursive;
-            font-size: 1.5em;
+            font-size: 1.2em; /* Micsorat pentru dispozitive mici */
             white-space: nowrap;
             overflow: hidden;
-            animation: scroll-text 90s linear infinite; /* Viteza derulantă mai lentă */
+            animation: scroll-text 60s linear infinite; /* Banda ruleaza mai incet pentru 5 minute de text */
         }
 
         @keyframes scroll-text {
@@ -77,6 +77,7 @@
             100% { transform: translateX(-100%); }
         }
 
+        /* Layout pentru carduri */
         .container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -95,6 +96,9 @@
             position: relative;
             color: var(--text-color);
             transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .card:hover {
@@ -116,6 +120,14 @@
             margin-bottom: 20px;
         }
 
+        /* Container pentru butoane */
+        .cta-buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
         .cta-button {
             background-color: var(--primary-color);
             color: #fff;
@@ -123,8 +135,8 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            display: inline-block;
-            margin-top: 10px;
+            width: 100%;
+            text-align: center;
             transition: background-color 0.3s;
         }
 
@@ -132,19 +144,36 @@
             background-color: var(--highlight-color);
         }
 
-        /* Sunet intro de tip "breaking news" */
-        .background-lines {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            background-image: linear-gradient(90deg, #00b3b3 1px, transparent 1px),
-                              linear-gradient(0deg, #00b3b3 1px, transparent 1px);
-            background-size: 30px 30px;
-            z-index: -1;
+        /* Optimizare pentru mobil */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+
+            header {
+                font-size: 1.5em;
+            }
+
+            .scrolling-text {
+                font-size: 1em; /* Ajustare pentru dispozitive mici */
+                padding: 8px 0;
+            }
+
+            .card h3 {
+                font-size: 18px;
+            }
+
+            .card p {
+                font-size: 14px;
+            }
+
+            .cta-buttons-container {
+                flex-direction: column;
+                align-items: center;
+            }
         }
+
     </style>
 </head>
 <body>
@@ -161,50 +190,65 @@
 
 <!-- Banda animata cu text -->
 <div class="scrolling-text">
-    Stiati ca diareea a fost una dintre cele mai vechi „probleme de sanatate”? | In caz ca nu v-ati dat seama, nu exista niciodata un moment bun pentru diaree! | Daca simti ca ai o problema... hai la WC! | Nu lasa diareea sa iti strice ziua, dar lasa-i un loc de cinste pe WC!
+    Stiati ca diareea a fost una dintre cele mai vechi „probleme de sanatate”? | In caz ca nu v-ati dat seama, nu exista niciodata un moment bun pentru diaree! | Daca simti ca ai o problema... hai la WC! | Nu lasa diareea sa iti strice ziua, dar lasa-i un loc de cinste pe WC! | Ai vrea sa ai o zi fara „vizite frecvente” la baie? | Diareea poate aparea in orice moment si poate fi cauzata de alimente sau stres. | Stii ca diareea acuta dureaza de obicei 1-2 zile, dar poate dura mai mult daca nu o tratezi corect? | Copiii si batranii sunt cei mai vulnerabili! |
 </div>
 
 <div class="container">
+    <!-- Card 1 -->
     <div class="card">
         <h3>Ai amortit la cat ai stat pe WC?</h3>
         <p>Stiati ca aproximativ 1,7 miliarde de cazuri de diaree sunt raportate anual la nivel global? Este o problema de sanatate mult mai raspandita decat ai crede!</p>
-        <a href="#" class="cta-button">Afla mai multe</a>
+        <div class="cta-buttons-container">
+            <a href="#" class="cta-button">Afla mai multe</a>
+        </div>
     </div>
 
+    <!-- Card 2 -->
     <div class="card">
         <h3>Ai ramas fara hartie igienica?</h3>
         <p>In unele cazuri, diareea poate fi extrem de severa, iar deshidratarea poate aparea rapid. In special pentru copii si batrani, este important sa fii pregatit!</p>
-        <a href="#" class="cta-button">Pregateste-te pentru orice</a>
+        <div class="cta-buttons-container">
+            <a href="#" class="cta-button">Afla mai multe</a>
+        </div>
     </div>
 
+    <!-- Card 3 -->
     <div class="card">
-        <h3>Tipuri de Diaree: Ce te asteapta?</h3>
-        <p>Diareea poate fi acuta (de scurta durata), persistenta (peste 4 zile) sau cronica (peste 2 saptamani). In functie de tip, tratamentele variaza.</p>
-        <a href="#" class="cta-button">Gaseste solutii rapide</a>
+        <h3>Tipuri de Diaree: Ce te loveste?</h3>
+        <p>Diareea poate fi acuta sau cronica. Fie ca este cauzata de o infectie bacteriana sau alimentatie nepotrivita, tratamentele pot varia. Afla care sunt cauzele si cum sa te protejezi!</p>
+        <div class="cta-buttons-container">
+            <a href="#" class="cta-button">Afla mai multe</a>
+        </div>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="card">
+        <h3>Simptome si tratament</h3>
+        <p>Simptomele comune ale diareei includ crampele abdominale, diaree frecventa si deshidratarea. Se recomanda sa bei multe lichide si sa eviti alimentele picante!</p>
+        <div class="cta-buttons-container">
+            <a href="#" class="cta-button">Afla mai multe</a>
+        </div>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="card">
+        <h3>Cum sa previi diareea?</h3>
+        <p>Masuri simple de prevenire includ spalatul frecvent pe maini si evitarea alimentelor nepreparate corect. Diareea poate fi prevenita cu cateva precautii simple!</p>
+        <div class="cta-buttons-container">
+            <a href="#" class="cta-button">Afla mai multe</a>
+        </div>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="card">
+        <h3>Ce complicatii pot aparea?</h3>
+        <p>In cazuri severe, diareea poate duce la deshidratare si dezechilibre electrolitice, mai ales in randul copiilor si batranilor. Incearca sa previi aceste complicatii prin hidratare corecta!</p>
+        <div class="cta-buttons-container">
+            <a href="#" class="cta-button">Afla mai multe</a>
+        </div>
     </div>
 </div>
 
-<div class="container">
-    <div class="card">
-        <h3>Complicatii: Ai grija!</h3>
-        <p>Diareea severa poate duce la deshidratare, mai ales daca nu te hidratezi corect. Daca ai simptome severe, este esential sa consulti un medic.</p>
-        <a href="#" class="cta-button">Ce sa faci in caz de urgenta</a>
-    </div>
-
-    <div class="card">
-        <h3>Tratament: Nu lasa diareea sa-ti strice ziua!</h3>
-        <p>Hidratarea corecta este cheia! De asemenea, medicamentele antidiarrheale pot ajuta, dar consulta intotdeauna un specialist inainte de a le lua.</p>
-        <a href="#" class="cta-button">Incearca acest tratament</a>
-    </div>
-
-    <div class="card">
-        <h3>Stiati ca?</h3>
-        <p>Diareea este a patra cauza principala de deces in randul copiilor sub 5 ani. Prevenirea prin igiena corecta este esentiala!</p>
-        <a href="#" class="cta-button">Afla cum sa previi</a>
-    </div>
-</div>
-
-<!-- Activare sunet intro -->
 <script>
     window.onload = function() {
         document.getElementById('intro-sound').play();
