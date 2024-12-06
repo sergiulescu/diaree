@@ -3,37 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scapă de Diaree!</title>
+    <title>Dashboard Interactiv: Informații despre Diaree</title>
     <style>
+        /* Fonturi și setări generale */
+        @import url('https://fonts.googleapis.com/css2?family=Calibri&display=swap');
+
         body {
-            background-color: #1a1a1a;
-            color: #00ff00;
-            font-family: "Courier New", Courier, monospace;
-            text-align: center;
-            padding: 50px;
+            font-family: 'Calibri', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
         }
-        h1 {
-            font-size: 3em;
-            text-shadow: 2px 2px 5px #ff00ff;
-        }
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            color: #1a1a1a;
-            background-color: #00ff00;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-        a:hover {
-            background-color: #ff00ff;
+
+        header {
+            background: linear-gradient(90deg, #007bff, #00bfff);
             color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 28px;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #007bff;
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Stil pentru grafic */
+        .chart-container {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #007bff;
+            color: #fff;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <h1>Scapă de diaree în 30 de minute!</h1>
-    <a href="#">Click aici</a>
+
+<header>
+    Dashboard Interactiv: Diaree și Informații Utile
+</header>
+
+<div class="container">
+
+    <!-- Secțiunea Statistici -->
+    <div class="section">
+        <h2>Statistici globale</h2>
+        <div class="chart-container">
+            <canvas id="globalStatsChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Secțiunea Cauze -->
+    <div class="section">
+        <h2>Cauzele Diareei</h2>
+        <div class="chart-container">
+            <canvas id="causesPieChart"></canvas>
+        </div>
+    </div>
+
+    <!-- Secțiunea Durata Simptomelor -->
+    <div class="section">
+        <h2>Durata Simptomelor</h2>
+        <div class="chart-container">
+            <canvas id="durationBarChart"></canvas>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    &copy; 2024 Dashboard Interactiv. Toate drepturile rezervate.
+</footer>
+
+<!-- Adaugă Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Grafic 1: Statistici Globale
+    const ctxGlobalStats = document.getElementById('globalStatsChart').getContext('2d');
+    new Chart(ctxGlobalStats, {
+        type: 'bar',
+        data: {
+            labels: ['Adulți (%)', 'Copii (%)', 'Decese Anuale (milioane)'],
+            datasets: [{
+                label: 'Statistici Globale',
+                data: [5, 20, 2],
+                backgroundColor: ['#007bff', '#00bfff', '#ff7f50'],
+                borderColor: ['#0056b3', '#007bff', '#cc3300'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+
+    // Grafic 2: Cauzele Diareei
+    const ctxCauses = document.getElementById('causesPieChart').getContext('2d');
+    new Chart(ctxCauses, {
+        type: 'pie',
+        data: {
+            labels: ['Infecții bacteriene', 'Infecții virale', 'Intoleranțe alimentare', 'Alimente contaminate'],
+            datasets: [{
+                label: 'Cauze',
+                data: [35, 25, 20, 20],
+                backgroundColor: ['#007bff', '#ff7f50', '#00bfff', '#7fff00']
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+
+    // Grafic 3: Durata Simptomelor
+    const ctxDuration = document.getElementById('durationBarChart').getContext('2d');
+    new Chart(ctxDuration, {
+        type: 'bar',
+        data: {
+            labels: ['1-3 zile', '4-7 zile', '7+ zile'],
+            datasets: [{
+                label: 'Durata Simptomelor',
+                data: [50, 30, 20],
+                backgroundColor: ['#ff7f50', '#007bff', '#00bfff'],
+                borderColor: ['#cc3300', '#0056b3', '#007bff'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+</script>
+
 </body>
 </html>
