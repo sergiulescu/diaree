@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Totul despre diaree</title>
+    <title>Informatii Despre Diaree</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
         :root {
             --primary-color: #ff0066;
             --secondary-color: #00ff99;
             --highlight-color: #00b3b3;
-            --background-color: #0a0a0a;
+            --background-color: #111;
             --text-color: #e5e5e5;
             --link-color: #ff33cc;
-            --card-bg: #222222;
+            --card-bg: rgba(34, 34, 34, 0.8);
             --shadow-color: rgba(0, 0, 0, 0.3);
             --font-primary: 'Orbitron', sans-serif;
-            --font-secondary: 'Roboto', sans-serif;
+            --font-secondary: 'Press Start 2P', cursive;
         }
 
         body {
@@ -28,6 +29,10 @@
             color: var(--text-color);
             line-height: 1.8;
             overflow-x: hidden;
+            position: relative;
+            background-image: url('https://i.imgur.com/udANJ9k.png'); /* Pattern background */
+            background-repeat: repeat;
+            background-size: 60px 60px;
         }
 
         header {
@@ -50,7 +55,7 @@
 
         .container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             padding: 30px;
             max-width: 1200px;
@@ -124,6 +129,17 @@
             position: fixed;
             width: 100%;
             bottom: 0;
+            overflow: hidden;
+        }
+
+        .footer p {
+            white-space: nowrap;
+            animation: scroll-text 10s linear infinite;
+        }
+
+        @keyframes scroll-text {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
         }
 
         .pulse {
@@ -139,65 +155,63 @@
 </head>
 <body>
 
+<!-- Sunet intro de tip "breaking news" -->
+<audio id="intro-sound" src="https://www.soundjay.com/button/beep-09.wav" preload="auto"></audio>
+
 <header>
-    <span class="pulse">Diaree: Tot ce trebuie să știi</span>
+    Informatii Despre Diaree
 </header>
 
 <div class="container">
     <div class="card">
-        <h3>Ai amortit la cât ai stat pe WC?</h3>
-        <p>Știați că aproximativ 1,7 miliarde de cazuri de diaree sunt raportate anual la nivel global? Este o problemă de sănătate mult mai răspândită decât ai crede!</p>
-        <a href="#" class="cta-button">Aflați mai multe</a>
+        <h3>Ai amortit la cat ai stat pe WC?</h3>
+        <p>Stiati ca aproximativ 1,7 miliarde de cazuri de diaree sunt raportate anual la nivel global? Este o problema de sanatate mult mai raspandita decat ai crede!</p>
+        <a href="#" class="cta-button">Afla mai multe</a>
     </div>
 
     <div class="card">
-        <h3>Ai rămas fără hârtie igienică?</h3>
-        <p>În unele cazuri, diareea poate fi extrem de severă, iar deshidratarea poate apărea rapid. În special pentru copii și vârstnici, este important să fii pregătit!</p>
-        <a href="#" class="cta-button">Pregătește-te pentru orice</a>
+        <h3>Ai ramas fara hartie igienica?</h3>
+        <p>In unele cazuri, diareea poate fi extrem de severa, iar deshidratarea poate aparea rapid. In special pentru copii si batrani, este important sa fii pregatit!</p>
+        <a href="#" class="cta-button">Pregateste-te pentru orice</a>
     </div>
 
     <div class="card">
-        <h3>Tipuri de Diaree: Ce te așteaptă?</h3>
-        <p>Diareea poate fi acută (de scurtă durată), persistentă (peste 4 zile) sau cronică (peste 2 săptămâni). În funcție de tip, tratamentele variază.</p>
-        <a href="#" class="cta-button">Găsește soluții rapide</a>
-    </div>
-
-    <div class="card">
-        <h3>Complicații: Ai grijă!</h3>
-        <p>Diareea severă poate duce la deshidratare, mai ales dacă nu te hidratezi corect. Dacă ai simptome severe, este esențial să consulți un medic.</p>
-        <a href="#" class="cta-button">Ce să faci în caz de urgență</a>
+        <h3>Tipuri de Diaree: Ce te asteapta?</h3>
+        <p>Diareea poate fi acuta (de scurta durata), persistenta (peste 4 zile) sau cronica (peste 2 saptamani). In functie de tip, tratamentele variaza.</p>
+        <a href="#" class="cta-button">Gaseste solutii rapide</a>
     </div>
 </div>
 
 <div class="container">
     <div class="card">
-        <h3>Tratament: Nu lăsa diareea să-ți strice ziua!</h3>
-        <p>Hidratarea corectă este cheia! De asemenea, medicamentele antidiarrheale pot ajuta, dar consultă întotdeauna un specialist înainte de a le lua.</p>
-        <a href="#" class="cta-button">Încearcă acest tratament</a>
+        <h3>Complicatii: Ai grija!</h3>
+        <p>Diareea severa poate duce la deshidratare, mai ales daca nu te hidratezi corect. Daca ai simptome severe, este esential sa consulti un medic.</p>
+        <a href="#" class="cta-button">Ce sa faci in caz de urgenta</a>
     </div>
 
     <div class="card">
-        <h3>Știați că?</h3>
-        <p>Diareea este a patra cauză principală de deces în rândul copiilor sub 5 ani. Prevenirea prin igienă corectă este esențială!</p>
-        <a href="#" class="cta-button">Află cum să previi</a>
+        <h3>Tratament: Nu lasa diareea sa-ti strice ziua!</h3>
+        <p>Hidratarea corecta este cheia! De asemenea, medicamentele antidiarrheale pot ajuta, dar consulta intotdeauna un specialist inainte de a le lua.</p>
+        <a href="#" class="cta-button">Incearca acest tratament</a>
+    </div>
+
+    <div class="card">
+        <h3>Stiati ca?</h3>
+        <p>Diareea este a patra cauza principala de deces in randul copiilor sub 5 ani. Prevenirea prin igiena corecta este esentiala!</p>
+        <a href="#" class="cta-button">Afla cum sa previi</a>
     </div>
 </div>
 
+<!-- Footer cu text glume care se deruleaza -->
 <div class="footer">
-    &copy; 2024 Diaree. Toate drepturile rezervate. | <a href="#" style="color: #ff33cc;">Contact</a>
+    <p>Stiati ca diareea a fost una dintre cele mai vechi „probleme de sanatate”? | In caz ca nu v-ati dat seama, nu exista niciodata un moment bun pentru diaree! | Daca simti ca ai o problema... hai la WC! | Nu lasa diareea sa iti strice ziua, dar lasa-i un loc de cinste pe WC! </p>
 </div>
 
-<!-- Adaugă sunete amuzante -->
-<audio id="funny-sound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
-
+<!-- Activare sunet intro -->
 <script>
-    // Activăm sunetul funny la hover
-    const funnyText = document.querySelectorAll('.funny-text');
-    funnyText.forEach(text => {
-        text.addEventListener('mouseover', () => {
-            document.getElementById('funny-sound').play();
-        });
-    });
+    window.onload = function() {
+        document.getElementById('intro-sound').play();
+    }
 </script>
 
 </body>
