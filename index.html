@@ -3,120 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Totul despre Diaree</title>
+    <title>Diaree Cyberpunk</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Open+Sans:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron&display=swap');
 
         :root {
-            --primary-color: #ff6f61;
-            --secondary-color: #f7b731;
-            --highlight-color: #40e0d0;
-            --background-color: #f7f7f7;
-            --card-bg: #fff;
-            --shadow-color: rgba(0, 0, 0, 0.1);
-            --text-color: #333;
-            --title-color: #e91e63;
-            --font-primary: 'Raleway', sans-serif;
-            --font-secondary: 'Open Sans', sans-serif;
+            --primary-color: #ff0066;
+            --secondary-color: #00ff99;
+            --highlight-color: #00b3b3;
+            --background-color: #0a0a0a;
+            --text-color: #e5e5e5;
+            --link-color: #ff33cc;
+            --card-bg: #222222;
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --font-primary: 'Orbitron', sans-serif;
+            --font-secondary: 'Roboto', sans-serif;
         }
 
         body {
-            font-family: var(--font-primary);
             margin: 0;
             padding: 0;
+            font-family: var(--font-primary);
             background-color: var(--background-color);
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.8;
+            overflow-x: hidden;
         }
 
         header {
-            background-color: var(--primary-color);
+            background: linear-gradient(45deg, #ff0066, #00ff99);
             color: #fff;
-            padding: 40px 0;
+            padding: 20px;
             text-align: center;
-            font-size: 36px;
-            font-weight: bold;
+            font-size: 2em;
+            font-weight: 700;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
-            letter-spacing: 2px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            animation: headerAnimation 3s ease-out;
+        }
+
+        @keyframes headerAnimation {
+            0% { opacity: 0; transform: translateY(-50px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            padding: 30px;
             max-width: 1200px;
             margin: 30px auto;
-            padding: 20px;
         }
 
         .card {
             background-color: var(--card-bg);
+            padding: 20px;
             border-radius: 12px;
-            box-shadow: 0 6px 20px var(--shadow-color);
-            padding: 30px;
+            box-shadow: 0 4px 12px var(--shadow-color);
             text-align: center;
             position: relative;
-            overflow: hidden;
+            color: var(--text-color);
             transition: transform 0.3s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px var(--shadow-color);
-        }
-
-        .card img {
-            width: 100px;
-            margin-bottom: 20px;
+            transform: scale(1.05);
+            box-shadow: 0 6px 18px var(--shadow-color);
         }
 
         .card h3 {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
-            color: var(--title-color);
+            color: var(--primary-color);
             margin-bottom: 15px;
+            text-transform: uppercase;
         }
 
         .card p {
             font-size: 16px;
             color: var(--text-color);
-        }
-
-        .stat {
-            background-color: var(--highlight-color);
-            color: #fff;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            font-weight: bold;
-            margin: 0 auto 15px;
-        }
-
-        .section-title {
-            font-size: 28px;
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 40px;
-            color: var(--title-color);
-        }
-
-        .footer {
-            background-color: var(--primary-color);
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            font-size: 16px;
-            margin-top: 50px;
-        }
-
-        .info-icon {
-            width: 100px;
-            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         .cta-button {
@@ -127,133 +95,108 @@
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 10px;
+            transition: background-color 0.3s;
         }
 
         .cta-button:hover {
-            background-color: var(--secondary-color);
+            background-color: var(--highlight-color);
         }
 
-        .chart-container {
-            margin: 30px auto;
+        .funny-text {
+            font-size: 18px;
+            font-family: var(--font-secondary);
+            color: var(--link-color);
+            margin-top: 20px;
         }
 
+        .funny-text:hover {
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        .footer {
+            background-color: #222222;
+            color: #aaa;
+            padding: 15px;
+            text-align: center;
+            font-size: 14px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
     </style>
 </head>
 <body>
 
 <header>
-    Totul despre Diaree: Informații esențiale pentru sănătatea ta
+    <span class="pulse">Diaree Cyberpunk: Tot ce trebuie să știi</span>
 </header>
 
 <div class="container">
     <div class="card">
-        <img src="https://img.icons8.com/external-flat-juicy-fish/344/external-global-health-flat-flat-juicy-fish.png" alt="Cazuri globale">
-        <h3>Știați că?</h3>
-        <p>Diareea este una dintre cele mai frecvente afecțiuni la nivel global, afectând aproximativ 1,7 miliarde de oameni anual.</p>
+        <h3>Ai amortit la cât ai stat pe WC?</h3>
+        <p>Știați că aproximativ 1,7 miliarde de cazuri de diaree sunt raportate anual la nivel global? Este o problemă de sănătate mult mai răspândită decât ai crede!</p>
+        <a href="#" class="cta-button">Aflați mai multe</a>
     </div>
 
     <div class="card">
-        <img src="https://img.icons8.com/external-flat-juicy-fish/344/external-children-global-health-flat-flat-juicy-fish.png" alt="Frecvența la copii">
-        <h3>Frecvența Diareei la Copii</h3>
-        <p>20% dintre copiii sub 5 ani sunt afectați de diaree cel puțin o dată pe lună, ceea ce poate duce la deshidratare severă.</p>
+        <h3>Ai rămas fără hârtie igienică?</h3>
+        <p>În unele cazuri, diareea poate fi extrem de severă, iar deshidratarea poate apărea rapid. În special pentru copii și vârstnici, este important să fii pregătit!</p>
+        <a href="#" class="cta-button">Pregătește-te pentru orice</a>
     </div>
 
     <div class="card">
-        <img src="https://img.icons8.com/external-flat-juicy-fish/344/external-viruses-global-health-flat-flat-juicy-fish.png" alt="Cauze">
-        <h3>Cauze comune ale diareei</h3>
-        <ul style="text-align: left;">
-            <li>Infecții virale (ex. rotavirus)</li>
-            <li>Infecții bacteriene (ex. Salmonella, E. coli)</li>
-            <li>Intoleranțe alimentare (ex. lactoză)</li>
-            <li>Medicamentoase (ex. antibiotice)</li>
-            <li>Contaminarea apei sau a alimentelor</li>
-        </ul>
+        <h3>Tipuri de Diaree: Ce te așteaptă?</h3>
+        <p>Diareea poate fi acută (de scurtă durată), persistentă (peste 4 zile) sau cronică (peste 2 săptămâni). În funcție de tip, tratamentele variază.</p>
+        <a href="#" class="cta-button">Găsește soluții rapide</a>
     </div>
 
     <div class="card">
-        <img src="https://img.icons8.com/external-flat-juicy-fish/344/external-diagnosis-global-health-flat-flat-juicy-fish.png" alt="Durata">
-        <h3>Durata și tipuri de diaree</h3>
-        <p>Diareea poate fi:</p>
-        <ul style="text-align: left;">
-            <li><strong>Acută:</strong> durează între 1-3 zile</li>
-            <li><strong>Persistentă:</strong> durează între 4-14 zile</li>
-            <li><strong>Cronică:</strong> durează mai mult de 15 zile</li>
-        </ul>
-    </div>
-
-    <div class="card">
-        <img src="https://img.icons8.com/external-flat-juicy-fish/344/external-complication-global-health-flat-flat-juicy-fish.png" alt="Complicații">
-        <h3>Complicații</h3>
-        <p>Diareea severă poate duce la:</p>
-        <ul style="text-align: left;">
-            <li>Deshidratare (periculoasă pentru copii și vârstnici)</li>
-            <li>Șoc hipovolemic</li>
-            <li>Complicații renale</li>
-        </ul>
+        <h3>Complicații: Ai grijă!</h3>
+        <p>Diareea severă poate duce la deshidratare, mai ales dacă nu te hidratezi corect. Dacă ai simptome severe, este esențial să consulți un medic.</p>
+        <a href="#" class="cta-button">Ce să faci în caz de urgență</a>
     </div>
 </div>
 
 <div class="container">
     <div class="card">
-        <img src="https://img.icons8.com/external-flat-juicy-fish/344/external-treatment-global-health-flat-flat-juicy-fish.png" alt="Tratament">
-        <h3>Cum se tratează diareea?</h3>
-        <p>Tratamentul include:</p>
-        <ul style="text-align: left;">
-            <li>Hidratare (soluții de rehidratare orală)</li>
-            <li>Medicamente antidiarrheale (ex. Loperamid)</li>
-            <li>Antibiotice (în caz de infecție bacteriană)</li>
-            <li>Evitați alimentele care irită stomacul</li>
-        </ul>
+        <h3>Tratament: Nu lăsa diareea să-ți strice ziua!</h3>
+        <p>Hidratarea corectă este cheia! De asemenea, medicamentele antidiarrheale pot ajuta, dar consultă întotdeauna un specialist înainte de a le lua.</p>
+        <a href="#" class="cta-button">Încearcă acest tratament</a>
     </div>
 
     <div class="card">
-        <img src="https://img.icons8.com/external-flat-juicy-fish/344/external-warning-global-health-flat-flat-juicy-fish.png" alt="Pericole la copii si batrani">
-        <h3>Pericole la copii și bătrâni</h3>
-        <p>Diareea poate fi extrem de periculoasă pentru copii și bătrâni, ducând rapid la deshidratare severă și chiar moarte.</p>
-        <a href="#" class="cta-button">Aflați mai multe despre deshidratare</a>
+        <h3>Știați că?</h3>
+        <p>Diareea este a patra cauză principală de deces în rândul copiilor sub 5 ani. Prevenirea prin igienă corectă este esențială!</p>
+        <a href="#" class="cta-button">Află cum să previi</a>
     </div>
 </div>
 
-<!-- Grafic Pie pentru tipuri de diaree -->
-<div class="chart-container">
-    <h3 class="section-title">Distribuția tipurilor de diaree</h3>
-    <canvas id="durationChart"></canvas>
-</div>
-
 <div class="footer">
-    &copy; 2024 Totul despre Diaree. Toate drepturile rezervate.
+    &copy; 2024 Diaree Cyberpunk. Toate drepturile rezervate. | <a href="#" style="color: #ff33cc;">Contact</a>
 </div>
 
-<!-- Adaugă Chart.js pentru grafice -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<!-- Adaugă sunete amuzante -->
+<audio id="funny-sound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
+
 <script>
-    const ctxDuration = document.getElementById('durationChart').getContext('2d');
-    new Chart(ctxDuration, {
-        type: 'pie',
-        data: {
-            labels: ['Acută (1-3 zile)', 'Persistentă (4-14 zile)', 'Cronică (15+ zile)'],
-            datasets: [{
-                data: [70, 20, 10],
-                backgroundColor: ['#ff6f61', '#f7b731', '#40e0d0'],
-                hoverOffset: 4
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: { position: 'bottom' },
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            const label = context.label || '';
-                            const value = context.raw || 0;
-                            return `${label}: ${value}%`;
-                        }
-                    }
-                }
-            }
-        }
+    // Activăm sunetul funny la hover
+    const funnyText = document.querySelectorAll('.funny-text');
+    funnyText.forEach(text => {
+        text.addEventListener('mouseover', () => {
+            document.getElementById('funny-sound').play();
+        });
     });
 </script>
 
